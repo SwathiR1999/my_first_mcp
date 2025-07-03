@@ -34,4 +34,4 @@ RUNPOD - L4
                 > Miss newer dependencies
             What `apt install git-all` does:
                 It checks the current package list (updated by apt update) and installs the latest version of git-all along with any required dependencies.
-Thus git got installed.         
+Thus git got installed.

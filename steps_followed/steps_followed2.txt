@@ -1,0 +1,26 @@
+After creating steps_followed1.txt, I followed these steps to commit the changes and push to main branch:
+1: git clone https://github.com/SwathiR1999/my_first_mcp.git
+2: git status
+3: git add steps_followed1.txt
+4: git commit -m "created steps_followed1.txt to log the procedure".
+   But this gave the following message:
+        Author identity unknown
+        *** Please tell me who you are.
+        Run
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+        to set your account's default identity.
+        Omit --global to set the identity only in this repository.
+5: So I set email and password
+6: Then again ran `git commit -m "created steps_followed1.txt to log the procedure"`. This time it worked.
+7: `git push origin main` . This asked the following:
+    Username for 'https://github.com': SwathiR1999
+    Password for 'https://SwathiR1999@github.com': (Here i typed my github password)
+    But the following error happened:
+        remote: Support for password authentication was removed on August 13, 2021.
+    So I created a Personal Access Token (PAT) in github.
+8: Now i again ran `git push origin main`.
+   For username i gave SwathiR1999
+   For password i gave the token number generated instead of the github password.
+   And it worked!!
+9: Note: in case you accidentally staged a file which you didn't want in fact, then use "git restore --staged <file>..." to unstage 
