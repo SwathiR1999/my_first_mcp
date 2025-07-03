@@ -1,0 +1,37 @@
+RUNPOD - L4
+
+1: Created a virtual environment : python -m venv mcp_env
+2: Activated the environment : source mcp_env/bin/activate
+3: Checked the general OS information: uname -a
+    It gave the output as : Linux 7b4aa1e82801 6.8.0-48-generic #48~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Oct  7 11:24:13 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+4: Checked the distribution name : cat /etc/os-release
+    It gave the output as :
+        PRETTY_NAME="Ubuntu 22.04.5 LTS"
+        NAME="Ubuntu"
+        VERSION_ID="22.04"
+        VERSION="22.04.5 LTS (Jammy Jellyfish)"
+        VERSION_CODENAME=jammy
+        ID=ubuntu
+        ID_LIKE=debian
+5: Had to install git:
+    If you’re on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use dnf:
+        $ sudo dnf install git-all
+    If you’re on a Debian-based distribution, such as Ubuntu, try apt:
+        $ sudo apt install git-all
+    Since this is ubuntu I used `sudo apt install git-all`
+    But it gave the error : sudo command not found
+    Then i noticed the following:
+        (mcp_env) root@7b4aa1e82801:/workspace# sudo apt install git-all
+        I am inside a virtual environment (see root@7b4aa1e82801), and already logged in as root, so:
+            I don't need sudo at all!!! (sudo is only needed to elevate privileges — but i'm already root.)
+            I just have to directly run:
+                    apt update
+                    apt install git-all
+            I ran `apt update` first because it refreshes my system’s list of available packages.
+            Without running apt update, the package list may be outdated, and apt install might:
+                > Fail with “Unable to locate package”
+                > Install an older version of a package
+                > Miss newer dependencies
+            What `apt install git-all` does:
+                It checks the current package list (updated by apt update) and installs the latest version of git-all along with any required dependencies.
+Thus git got installed.         
